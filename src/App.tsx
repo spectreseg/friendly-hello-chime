@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { AuthProvider, useAuthContext } from './context/AuthContext';
@@ -28,7 +28,7 @@ function AppContent() {
   const { user, loading } = useAuthContext();
 
   // Reset to login screen when user signs out
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('User state changed:', user);
     if (!user) {
       console.log('No user, setting screen to login');
